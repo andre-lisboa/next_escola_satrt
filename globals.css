@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variáveis de cor */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Estilos do menu */
+.nav-container {
+  @apply bg-purple-800 rounded-xl h-12 mt-2 flex items-center justify-center text-lg font-bold font-serif px-4 relative;
+}
+
+/* Lista de itens do menu */
+.nav-list {
+  @apply flex gap-8 p-0 list-none;
+}
+
+/* Links do menu */
+.nav-link {
+  @apply text-pink-200 font-bold no-underline transition-transform duration-200 ease-in-out;
+}
+
+.nav-link:hover {
+  @apply text-purple-300 scale-110;
+}
+
+/* Ícone do menu hamburguer (mobile) */
+.mobile-content {
+  @apply hidden absolute right-4 cursor-pointer;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+  .nav-list {
+    @apply flex-col absolute top-12 left-0 w-full bg-purple-800 z-50 p-4 hidden;
+  }
+
+  .menu-open .nav-list {
+    @apply flex;
+  }
+
+  .mobile-content {
+    @apply flex;
+  }
+}
+
+/* Ajuste do background */
+body {
+  @apply bg-[var(--background)] text-[var(--foreground)] font-sans;
+}
+
+header.fixed-top {
+  height: 60px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+body {
+  padding-top: 0px; /* Garante que o conteúdo não fique escondido */
+}
+
+div.divgrad{
+  padding: 50px; 
+} 
+
+h1.h1grad{
+  font-size: 35px;
+  text-align: center;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+}
+
+/* Estilos para o menu mobile */
+@media (max-width: 768px) {
+  .nav-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #2d3748; /* Cor de fundo do menu */
+    background-size: cover;
+    flex-direction: column;
+    padding: none;
+    display:none;
+    border-radius: 8px;
+    
+  }
+
+  .nav-container.menu-open .nav-list {
+    display: flex;
+  }
+
+  .nav-list li {
+    margin: 0px 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 12px 20px;
+    border: 2px solid #f0f2f5;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: white;
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    background-color: #010408;
+    border-color: #6B21A8;
+    transform: translateY(-2px);
+  }
+}
+
+/* Estilos para desktop */
+@media (min-width: 769px) {
+  .mobile-content {
+    display: none;
+  }
+
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    background-color: #0b0b0b;
+  }
+}
